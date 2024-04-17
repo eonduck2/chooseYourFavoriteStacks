@@ -1,3 +1,7 @@
 @function widthOrHeight100($props_val) {
   @return $props_val * 100;
 }
+
+@function gapsCalc($first_gap_val, $second_gap_val) {
+  @return $first_gap_val + second_gap_val;
+}

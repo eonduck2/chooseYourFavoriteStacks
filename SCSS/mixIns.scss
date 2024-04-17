@@ -1,14 +1,23 @@
-@mixin flex_basic_layout($direction: column) {
+@mixin flex_basic_layout(
+  $direction: row,
+  $justify-content: center,
+  $align-items: center
+) {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: $justify-content;
+  align-items: $align-items;
   flex-direction: $direction;
+}
+
+@mixin flex_align_layout($justify-content: center, $align-items: center) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
 }
 
 @mixin grid_column_layout($template: 1fr 1fr) {
   display: grid;
-  justify-content: center;
-  align-items: center;
+  place-items: center;
   grid-template-columns: $template;
 }
 

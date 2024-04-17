@@ -1,4 +1,84 @@
+@use "mixIns";
+@use "colors";
+@use "fonts";
+@use "functions";
+@use "border";
+@use "gaps";
+
 body {
   width: 100%;
   height: 100%;
+}
+// * .first_section
+.first_section {
+  @include mixIns.flex_basic_layout(column);
+  @include mixIns.create_contents_container(100vw, 100vh);
+  background-color: colors.$color-black-bg;
+  gap: gaps.$gap60;
+
+  // * .main_logo_container
+  .main_logo_container {
+    @include mixIns.flex_basic_layout();
+    @include mixIns.create_contents_container(100vw, 20vh);
+    background-color: colors.$color-blue-bg;
+
+    .main_logo_second_container {
+      @include mixIns.create_contents_container(50%, 100%);
+      background-color: colors.$color-pink-bg;
+    }
+  }
+
+  .first_section_contents_wrapper {
+    @include mixIns.flex_basic_layout(column);
+    @include mixIns.create_contents_container(100vw, 60vh);
+    background-color: colors.$color-red-bg;
+
+    .contents_container {
+      @include mixIns.flex_basic_layout(column);
+      @include mixIns.create_contents_container(100%, 90%);
+      background-color: colors.$color-white-bg;
+
+      .tab_container {
+        @include mixIns.flex_basic_layout(row, start, end);
+        @include mixIns.create_contents_container(100%, 10%);
+        background-color: colors.$color-pink-bg;
+
+        .first_tab {
+          @include mixIns.create_contents_container(10%, 90%);
+          background-color: colors.$color-aqua-bg;
+        }
+
+        .second_tab {
+          @include mixIns.create_contents_container(10%, 90%);
+          background-color: colors.$color-white-bg;
+        }
+
+        .third_tab {
+          @include mixIns.create_contents_container(10%, 90%);
+          background-color: colors.$color-light-gray-bg;
+        }
+      }
+
+      .stack_container {
+        @include mixIns.grid_column_layout(repeat(3, 1fr));
+        @include mixIns.create_contents_container(100%, 80%);
+        background-color: colors.$color-black-bg;
+
+        .first_stack {
+          @include mixIns.create_contents_container(80%, 80%);
+          background-color: colors.$color-light-gray-bg;
+        }
+
+        .second_stack {
+          @include mixIns.create_contents_container(80%, 80%);
+          background-color: colors.$color-light-gray-bg;
+        }
+
+        .third_stack {
+          @include mixIns.create_contents_container(80%, 80%);
+          background-color: colors.$color-light-gray-bg;
+        }
+      }
+    }
+  }
 }
