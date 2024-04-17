@@ -5,9 +5,10 @@
 @use "border";
 @use "gaps";
 
+$overflow_hidden: hidden;
+
 body {
-  width: 100%;
-  height: 100%;
+  @include mixIns.create_contents_container(100%, 100%);
 }
 // * .first_section
 .first_section {
@@ -23,8 +24,18 @@ body {
     background-color: colors.$color-blue-bg;
 
     .main_logo_second_container {
+      @include mixIns.flex_basic_layout();
       @include mixIns.create_contents_container(50%, 100%);
       background-color: colors.$color-pink-bg;
+
+      .main_logo {
+        @include mixIns.flex_basic_layout();
+        @include mixIns.create_contents_container(50%, 100%);
+
+        img:first-child {
+          @include mixIns.create_contents_container(100%, 100%);
+        }
+      }
     }
   }
 
@@ -40,43 +51,94 @@ body {
 
       .tab_container {
         @include mixIns.flex_basic_layout(row, start, end);
-        @include mixIns.create_contents_container(100%, 10%);
+        @include mixIns.create_contents_container(80%, 10%);
         background-color: colors.$color-pink-bg;
 
         .first_tab {
+          overflow: $overflow_hidden;
+          box-sizing: border-box;
+          @include mixIns.flex_basic_layout();
           @include mixIns.create_contents_container(10%, 90%);
           background-color: colors.$color-aqua-bg;
+
+          div:first-child {
+            @include mixIns.flex_basic_layout();
+            @include mixIns.create_contents_container(90%, 90%);
+          }
         }
 
         .second_tab {
+          overflow: $overflow_hidden;
+          box-sizing: border-box;
+          @include mixIns.flex_basic_layout();
           @include mixIns.create_contents_container(10%, 90%);
           background-color: colors.$color-white-bg;
+
+          div:first-child {
+            @include mixIns.flex_basic_layout();
+            @include mixIns.create_contents_container(90%, 90%);
+          }
         }
 
         .third_tab {
+          overflow: $overflow_hidden;
+          box-sizing: border-box;
+          @include mixIns.flex_basic_layout();
           @include mixIns.create_contents_container(10%, 90%);
           background-color: colors.$color-light-gray-bg;
+
+          div:first-child {
+            @include mixIns.flex_basic_layout();
+            @include mixIns.create_contents_container(90%, 90%);
+          }
         }
       }
 
       .stack_container {
         @include mixIns.grid_column_layout(repeat(3, 1fr));
-        @include mixIns.create_contents_container(100%, 80%);
+        @include mixIns.create_contents_container(80%, 80%);
         background-color: colors.$color-black-bg;
 
         .first_stack {
           @include mixIns.create_contents_container(80%, 80%);
-          background-color: colors.$color-light-gray-bg;
+          // background-color: colors.$color-light-gray-bg;
+
+          picture:first-child {
+            @include mixIns.flex_basic_layout();
+            @include mixIns.create_contents_container(100%, 100%);
+
+            img:first-child {
+              @include mixIns.create_contents_container(100%, 100%);
+            }
+          }
         }
 
         .second_stack {
           @include mixIns.create_contents_container(80%, 80%);
-          background-color: colors.$color-light-gray-bg;
+          // background-color: colors.$color-light-gray-bg;
+
+          picture:first-child {
+            @include mixIns.flex_basic_layout();
+            @include mixIns.create_contents_container(100%, 100%);
+
+            img:first-child {
+              @include mixIns.create_contents_container(100%, 100%);
+            }
+          }
         }
 
         .third_stack {
           @include mixIns.create_contents_container(80%, 80%);
-          background-color: colors.$color-light-gray-bg;
+          // background-color: colors.$color-light-gray-bg;
+
+          picture:first-child {
+            @include mixIns.flex_basic_layout();
+            @include mixIns.create_contents_container(100%, 100%);
+
+            img:first-child {
+              @include mixIns.create_contents_container(100%, 100%);
+            }
+          }
         }
       }
     }
